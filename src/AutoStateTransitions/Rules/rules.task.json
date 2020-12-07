@@ -8,6 +8,12 @@
       "allChildren": false
     },
     {
+      "ifChildState": "New",
+      "notParentStates": [],
+      "setParentStateTo": "Planning",
+      "allChildren": true
+    },
+    {
       "ifChildState": "Test",
       "notParentStates": [ "Active", "Fully in Test", "Resolved" ],
       "setParentStateTo": "Active",
@@ -20,7 +26,7 @@
       "allChildren": true
     },
     {
-      "ifChildState": [ "Closed", "Test" ],
+      "ifChildState":  "Test",
       "notParentStates": [],
       "setParentStateTo": "Fully in Test",
       "allChildren": true
