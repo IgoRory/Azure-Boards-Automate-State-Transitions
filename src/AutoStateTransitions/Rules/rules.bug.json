@@ -1,0 +1,29 @@
+{
+  "type": "Bug",
+  "rules": [
+    {
+      "ifChildState": "Development",
+      "notParentStates": [ "Active", "Fully in Test", "Resolved" ],
+      "setParentStateTo": "Active",
+      "allChildren": false
+    },
+    {
+      "ifChildState": "Test",
+      "notParentStates": [ "Active", "Fully in Test", "Resolved" ],
+      "setParentStateTo": "Active",
+      "allChildren": false
+    },
+    {
+      "ifChildState": "Closed",
+      "notParentStates": [],
+      "setParentStateTo": "Closed",
+      "allChildren": true
+    },
+    {
+      "ifChildState": [ "Closed", "Test" ],
+      "notParentStates": [],
+      "setParentStateTo": "Fully in Test",
+      "allChildren": true
+    }
+  ]
+}
