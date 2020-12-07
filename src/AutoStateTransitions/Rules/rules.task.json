@@ -2,14 +2,14 @@
   "type": "Task",
   "rules": [
     {
-      "ifChildState": "Active",
-      "notParentStates": [ "Active", "Resolved" ],
+      "ifChildState": "Development",
+      "notParentStates": [ "Active", "Fully in Test", "Resolved" ],
       "setParentStateTo": "Active",
       "allChildren": false
     },
     {
-      "ifChildState": "New",
-      "notParentStates": [ "Active", "Resolved", "New" ],
+      "ifChildState": "Test",
+      "notParentStates": [ "Active", "Fully in Test", "Resolved" ],
       "setParentStateTo": "Active",
       "allChildren": false
     },
@@ -17,6 +17,12 @@
       "ifChildState": "Closed",
       "notParentStates": [],
       "setParentStateTo": "Closed",
+      "allChildren": true
+    },
+    {
+      "ifChildState": [ "Closed", "Test" ],
+      "notParentStates": [],
+      "setParentStateTo": "Fully in Test",
       "allChildren": true
     }
   ]
