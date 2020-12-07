@@ -2,22 +2,22 @@
   "type": "Task",
   "rules": [
     {
-      "ifChildState": "Development",
-      "notParentStates": [ "Active", "Fully in Test", "Resolved" ],
-      "setParentStateTo": "Active",
-      "allChildren": false
-    },
-    {
       "ifChildState": "New",
       "notParentStates": [],
       "setParentStateTo": "Planning",
       "allChildren": true
     },
     {
-      "ifChildState": "Test",
-      "notParentStates": [ "Active", "Fully in Test", "Resolved" ],
+      "ifChildState":  "Development",
+      "notParentStates": [],
       "setParentStateTo": "Active",
-      "allChildren": false
+      "allChildren": true
+    },
+    {
+      "ifChildState":  "Test",
+      "notParentStates": [],
+      "setParentStateTo": "Fully in Test",
+      "allChildren": true
     },
     {
       "ifChildState": "Closed",
@@ -26,10 +26,22 @@
       "allChildren": true
     },
     {
-      "ifChildState":  "Test",
+      "ifChildState": "Removed",
       "notParentStates": [],
-      "setParentStateTo": "Fully in Test",
+      "setParentStateTo": "New",
       "allChildren": true
+    },
+    {
+      "ifChildState": "Development",
+      "notParentStates": [ "New", "Planning", "Fully in Test", "Resolved", "Closed" ],
+      "setParentStateTo": "Active",
+      "allChildren": false
+    },
+    {
+      "ifChildState": "Test",
+      "notParentStates": [ "New", "Planning", "Fully in Test", "Resolved", "Closed"],
+      "setParentStateTo": "Active",
+      "allChildren": false
     }
   ]
 }
