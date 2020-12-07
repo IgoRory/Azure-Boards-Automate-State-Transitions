@@ -42,7 +42,7 @@ namespace AutoStateTransitions
 
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddTransient<IHelper, Helper>();
-
+            services.AddSingleton(new System.Net.Http.HttpClient());
             services.AddTransient<IWorkItemRepo, WorkItemRepo>();
             services.AddTransient<IRulesRepo, RulesRepo>();
 
