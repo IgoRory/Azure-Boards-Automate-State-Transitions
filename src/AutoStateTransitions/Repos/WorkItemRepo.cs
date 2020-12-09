@@ -29,11 +29,12 @@ namespace AutoStateTransitions.Repos
 
         public async Task<WorkItem> GetWorkItem(VssConnection connection, int id)
         {
-            using (WorkItemTrackingHttpClient client = connection.GetClient<WorkItemTrackingHttpClient>())
+            //using (WorkItemTrackingHttpClient client = connection.GetClient<WorkItemTrackingHttpClient>())
             {
 
                 try
                 {
+                WorkItemTrackingHttpClient client = connection.GetClient<WorkItemTrackingHttpClient>();
                     return await client.GetWorkItemAsync(id, null, null, WorkItemExpand.Relations);
 
                 }
@@ -47,8 +48,10 @@ namespace AutoStateTransitions.Repos
         public async Task<List<WorkItem>> ListChildWorkItemsForParent(VssConnection connection, WorkItem parentWorkItem)
         {
             List<WorkItem> list = new List<WorkItem>();
-            using (WorkItemTrackingHttpClient client = connection.GetClient<WorkItemTrackingHttpClient>())
+            //using (WorkItemTrackingHttpClient client = connection.GetClient<WorkItemTrackingHttpClient>())
             {
+                WorkItemTrackingHttpClient client = connection.GetClient<WorkItemTrackingHttpClient>();
+
                 // get all the related child work item links
                 IEnumerable<WorkItemRelation> children = parentWorkItem.Relations.Where<WorkItemRelation>(x => x.Rel.Equals("System.LinkTypes.Hierarchy-Forward"));
                 IList<int> Ids = new List<int>();
@@ -92,11 +95,13 @@ namespace AutoStateTransitions.Repos
 
             WorkItem result = null;
 
-            using (WorkItemTrackingHttpClient client = connection.GetClient<WorkItemTrackingHttpClient>())
+            //using (WorkItemTrackingHttpClient client = connection.GetClient<WorkItemTrackingHttpClient>())
             {
 
                 try
                 {
+                WorkItemTrackingHttpClient client = connection.GetClient<WorkItemTrackingHttpClient>();
+                
                     result = await client.UpdateWorkItemAsync(patchDocument, Convert.ToInt32(workItem.Id));
                 }
                 catch (Exception)
