@@ -8,12 +8,6 @@
       "allChildren": true
     },
     {
-      "ifChildState":  "Development",
-      "notParentStates": [],
-      "setParentStateTo": "Active",
-      "allChildren": true
-    },
-    {
       "ifChildState":  "Test",
       "notParentStates": [],
       "setParentStateTo": "Fully in Test",
@@ -33,13 +27,13 @@
     },
     {
       "ifChildState": "Development",
-      "notParentStates": [ "New", "Planning", "Fully in Test", "Resolved", "Closed" ],
+      "notParentStates": [ "Planning", "Fully in Test", "Resolved", "Closed" ],
       "setParentStateTo": "Active",
       "allChildren": false
     },
     {
       "ifChildState": "Test",
-      "notParentStates": [ "New", "Planning", "Fully in Test", "Resolved", "Closed"],
+      "notParentStates": [ "Planning", "Fully in Test", "Resolved", "Closed"],
       "setParentStateTo": "Active",
       "allChildren": false
     }
