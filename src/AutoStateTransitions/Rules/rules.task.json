@@ -3,8 +3,8 @@
   "rules": [
     {
       "ifChildState": "New",
-      "notParentStates": [],
-      "setParentStateTo": "Planning",
+      "notParentStates": ["New", "Dev/Test", "Fully in Test","Closed"],
+      "setParentStateTo": "Ready for Dev",
       "allChildren": true
     },
     {
