@@ -8,7 +8,19 @@
       "allChildren": true
     },
     {
-      "ifChildState":  "Test",
+      "ifChildState":  "Development",
+      "notParentStates": ["Dev/Test", "Fully in Test" ],
+      "setParentStateTo": "Development",
+      "allChildren": false
+    },
+    {
+      "ifChildState": "Test",
+      "notParentStates": [ "Dev/Test", "Fully in Test" ],
+      "setParentStateTo": "Dev/Test",
+      "allChildren": false
+    },
+    {
+      "ifChildState": "Test",
       "notParentStates": [],
       "setParentStateTo": "Fully in Test",
       "allChildren": true
@@ -18,24 +30,6 @@
       "notParentStates": [],
       "setParentStateTo": "Closed",
       "allChildren": true
-    },
-    {
-      "ifChildState": "Removed",
-      "notParentStates": [],
-      "setParentStateTo": "New",
-      "allChildren": true
-    },
-    {
-      "ifChildState": "Development",
-      "notParentStates": [ "Planning", "Fully in Test", "Resolved", "Closed" ],
-      "setParentStateTo": "Active",
-      "allChildren": false
-    },
-    {
-      "ifChildState": "Test",
-      "notParentStates": [ "Planning", "Fully in Test", "Resolved", "Closed"],
-      "setParentStateTo": "Active",
-      "allChildren": false
     }
   ]
 }
