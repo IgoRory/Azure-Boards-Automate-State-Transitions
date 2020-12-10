@@ -2,34 +2,28 @@
   "type": "User Story",
   "rules": [
     {
-      "ifChildState": "Active",
-      "notParentStates": [ "Active", "Resolved" ],
+      "ifChildState": "Development",
+      "notParentStates": [ "Closed" ],
       "setParentStateTo": "Active",
       "allChildren": false
     },
     {
-      "ifChildState": "Planning",
-      "notParentStates": [ "Active", "Resolved" ],
+      "ifChildState": "Test",
+      "notParentStates": [ "Closed" ],
       "setParentStateTo": "Active",
       "allChildren": false
     },
     {
-      "ifChildState": "Active",
-      "notParentStates": [],
+      "ifChildState": "Test/Dev",
+      "notParentStates": [ "Closed" ],
       "setParentStateTo": "Active",
-      "allChildren": true
+      "allChildren": false
     },
     {
-      "ifChildState": "Fully in Test",
-      "notParentStates": [],
+       "ifChildState": "Fully in Test",
+      "notParentStates": [ "Closed" ],
       "setParentStateTo": "Active",
-      "allChildren": true
-    },
-    {
-      "ifChildState": "Resolved",
-      "notParentStates": [],
-      "setParentStateTo": "Resolved",
-      "allChildren": true
+      "allChildren": false
     },
     {
       "ifChildState": "Closed",
