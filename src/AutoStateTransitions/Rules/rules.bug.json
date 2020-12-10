@@ -3,15 +3,15 @@
   "rules": [
     {
       "ifChildState": "Development",
-      "notParentStates": [ "Active", "Fully in Test", "Resolved" ],
-      "setParentStateTo": "Active",
+      "notParentStates": [ "Fully in Test", "Closed" ],
+      "setParentStateTo": "Dev/Test",
       "allChildren": false
     },
     {
       "ifChildState": "Test",
-      "notParentStates": [ "Active", "Fully in Test", "Resolved" ],
-      "setParentStateTo": "Active",
-      "allChildren": false
+      "notParentStates": [ "Closed" ],
+      "setParentStateTo": "Fully in Test",
+      "allChildren": true
     },
     {
       "ifChildState": "Closed",
