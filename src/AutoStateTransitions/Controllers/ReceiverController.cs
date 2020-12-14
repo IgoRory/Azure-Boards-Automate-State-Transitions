@@ -91,7 +91,7 @@ namespace AutoStateTransitions.Controllers
                         if (!rule.NotParentStates.Contains(parentState))
                         {
                             await _workItemRepo.UpdateWorkItemState(vssConnection, parentWorkItem, rule.SetParentStateTo);
-                            return new OkResult();
+                            //return new OkResult();
                         }
                     }
                     else
@@ -105,7 +105,7 @@ namespace AutoStateTransitions.Controllers
                         if (count.Equals(0))
                             await _workItemRepo.UpdateWorkItemState(vssConnection, parentWorkItem, rule.SetParentStateTo);
 
-                        return new OkResult();
+                        //return new OkResult();
                     }
 
                 }
